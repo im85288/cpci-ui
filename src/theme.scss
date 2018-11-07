@@ -1,0 +1,85 @@
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+
+@include mat-core(); // $typography is an **optional** argument for the mat-core
+
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink);
+
+$warn: mat-palette($mat-orange);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+@include covalent-theme($theme); // $typography is an **optional** argument for the covalent-theme
+
+//@include angular-material-theme($indigo-app-theme);
+//@include covalent-theme($indigo-app-theme); // $typography is an **optional** argument for the covalent-theme
+
+// these are for the framework etc
+.menu-item:hover {
+  background-color: mat-color($primary, 100);
+}
+
+.menu-item.vertical-menu:hover {
+  background-color: mat-color($primary, 900);
+}
+
+.router-link-active {
+  background-color: mat-color($primary, 100);
+}
+
+.router-link-active.vertical-menu {
+  background-color: mat-color($primary, 500);
+}
+
+.title-colour {
+  color: mat-color($primary, 900);
+}
+
+.ticker-colour {
+  background-color: mat-color($primary, 800);
+}
+
+.projected-title-background-colour {
+  //background-color: mat-color($primary);
+  background-color: #555;
+}
+
+.projected-title-background-secondary-colour {
+  //background-color: mat-color($primary, 800);
+  background-color: #666;
+}
+
+.highlight {
+  color: mat-color($accent);
+}
+
+.menu-highlight {
+  background-color: mat-color($accent);
+}
+
+.secondary-toolbar {
+  color: mat-color($primary, 700);
+}
+
+.mat-basic-chip {
+  outline: 1px solid black;
+  padding-left: 5px;
+  margin-right: 5px;
+}
+
+.mat-basic-chip:hover {
+  background-color: mat-color($primary, 100);
+}
+
+.mat-chip .mat-chip-trailing-icon.mat-icon, .mat-chip .mat-chip-remove.mat-icon:hover {
+  cursor: pointer;
+}
+
+
+//.footer-colour{
+//  background-color: mat-color($primary, 800);
+//}
+//
+

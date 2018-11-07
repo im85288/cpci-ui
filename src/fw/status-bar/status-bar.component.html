@@ -1,0 +1,11 @@
+<div class="footer-colour">
+  <a class="actions" *ngFor="let action of frameworkConfigService.statusBarActions"
+     mat-button
+     [matTooltip]="action.tooltip"
+     routerLink="{{action.link}}">
+    {{action.name}}
+  </a>
+  <span class="fill-space"></span>
+  <a mat-button href="https://www.epo.org/" class="copyright">&copy; European Patent Office</a>
+
+</div>

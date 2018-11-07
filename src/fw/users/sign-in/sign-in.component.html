@@ -1,0 +1,43 @@
+<div class="sign-in-form">
+  <img src="assets/images/epo.png" width="320" height="140"/>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-container">
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" type="email">
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-container">
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="password" type="password">
+
+        <mat-icon matSuffix>lock</mat-icon>
+        <mat-error *ngIf="password.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="password.hasError('minlength')">
+          Password must be a minimum of <strong>8</strong> characters long
+        </mat-error>
+        <mat-error *ngIf="password.hasError('maxlength')">
+          Password cannot be longer than <strong>64</strong> characters long
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div *ngIf="formError" class="alert alert-danger">
+      {{ formError }}
+    </div>
+    <div class="button" *ngIf="!submitting">
+      <button [disabled]="loginForm.invalid" mat-button color="primary" [ngClass]="{'mat-raised-button':loginForm.valid}">Sign In</button>
+    </div>
+    <div *ngIf="submitting">
+      <p class="message">Signing In...</p>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  </form>
+</div>

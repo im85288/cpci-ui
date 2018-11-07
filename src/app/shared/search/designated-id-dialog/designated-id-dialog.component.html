@@ -1,0 +1,19 @@
+<h4 class="center-components">Document Identifier Input</h4>
+<mat-dialog-content>
+  <div [formGroup]="designatedFamilyIdForm">
+    <mat-form-field hintLabel="For example 135782468">
+      <input mask="9999999999" matInput placeholder="ID" formControlName="id" oninput="this.value = this.value.toUpperCase()">
+      <mat-error *ngIf="id.hasError('pattern')">
+        The designated family ID must exist
+      </mat-error>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="center-components">
+  <button matTooltip="Add the designated id to the search criteria" [disabled]="!designatedFamilyIdForm.valid" [ngClass]="{'mat-raised-button': designatedFamilyIdForm.valid}"  mat-button color="primary" (click)="add()">
+    <mat-icon>playlist_add</mat-icon> Add
+  </button>
+  <button matTooltip="Cancel without adding the designated id" mat-button (click)="dismiss()">
+    <mat-icon>cancel</mat-icon> Cancel
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,74 @@
+:host {
+  height: 30px;
+  text-align: right;
+  padding-top: 4px;
+  color: #888;
+}
+
+.avatar {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0px;
+  vertical-align: middle;
+  transform: translateZ(0);
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+}
+
+.noavatar {
+  min-width: 115px;
+  margin-right: 10px;
+}
+
+div {
+  display: inline;
+  margin-left: 34px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.top-image {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.flag-image {
+  width: 22px;
+  height: 16px;
+  vertical-align: middle;
+  /*margin-right: -16px;*/
+}
+
+span.glyphicon {
+  margin-left: 4px;
+  font-size: 11px;
+}
+
+.sign-out {
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.user-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-info {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.icons{
+  right: 10px;
+}

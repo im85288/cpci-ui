@@ -1,0 +1,43 @@
+<div [hidden]="operation === 'create' && field.isId" [formGroup]="form">
+
+  <div [ngSwitch]="field.type">
+
+    <div *ngSwitchCase="'string'" class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="{{field.label}}" [formControlName]="field.key" [id]="field.key"
+               [readonly]="operation == 'details' || field.isId">
+      </mat-form-field>
+    </div>
+
+    <div *ngSwitchCase="'textarea'" class="form-group">
+      <mat-form-field>
+        <textarea matInput matTextareaAutosize  matAutosizeMinRows="2" placeholder="{{field.label}}" [formControlName]="field.key" [id]="field.key"
+               [readonly]="operation == 'details' || field.isId"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div *ngSwitchCase="'number'" class="form-group">
+      <input matInput placeholder="{{field.label}}" [formControlName]="field.key" [id]="field.key"
+             [readonly]="operation == 'details' || field.isId" type="number">
+    </div>
+
+    <div *ngSwitchCase="'checkbox'" class="form-group">
+      <mat-checkbox [disabled]="operation == 'details' || field.isId" [formControlName]="field.key">{{field.label}}</mat-checkbox>
+    </div>
+
+    <div *ngSwitchCase="'date'" class="form-group">
+      <mat-form-field>
+        <input matInput placeholder="{{field.label}}" [matDatepicker]="myDatepicker" [readonly]="operation == 'details' || field.isId" [formControlName]="field.key" [id]="field.key">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="form.get(field.key).hasError('required') && (submitted || form.get(field.key).touched)">
+      <mat-error>
+        {{ field.label }} is <strong>required</strong>
+      </mat-error>
+    </div>
+
+  </div>
+</div>

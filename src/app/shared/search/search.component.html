@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-card-subtitle>Enter Search Criteria</mat-card-subtitle>
+  <mat-divider></mat-divider>
+  <mat-card-content class="layout">
+    <form [formGroup]="searchForm" novalidate>
+      <div>
+        <label class="header">Designated Family IDs</label>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-chip-list #designatedIdsList>
+            <mat-basic-chip *ngFor="let designatedFamilyId of designatedFamilyIds" [selectable]="true"
+                      [removable]="true" (removed)="removeDesignatedFamilyId(designatedFamilyId)">
+              {{designatedFamilyId.id}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-basic-chip>
+            <input matInput
+                   formControlName="designatedFamilyIdsFormControl"
+                   [matChipInputFor]="designatedIdsList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="true"
+                   (keyup)="showAddDesignatedIdWindow()">
+          </mat-chip-list>
+          <button matTooltip="Add a designated family ID to the search criteria" mat-button matSuffix mat-icon-button aria-label="Add" (click)="showAddDesignatedIdWindow()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div>
+        <label class="header">Document IDs</label>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-chip-list #documentIdsList>
+            <mat-basic-chip *ngFor="let document of documents" [selectable]="false"
+                      [removable]="true" (removed)="removeDocument(document)">
+              {{formattedDocument(document)}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-basic-chip>
+            <input matInput
+                   oninput="this.value = this.value.toUpperCase()"
+                   formControlName="documentIdsFormControl"
+                   [matChipInputFor]="documentIdsList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="true">
+          </mat-chip-list>
+          <button matTooltip="Add a document ID to the search criteria" mat-button matSuffix mat-icon-button aria-label="Add" (click)="showAddDocumentIdWindow()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="center-components" *ngIf="!submitting">
+        <button (click)="search()" [disabled]="!searchValid()" mat-button color="primary" [ngClass]="{'mat-raised-button':searchValid()}">Search</button>
+      </div>
+      <div *ngIf="submitting">
+        <p class="message">Searching...</p>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+

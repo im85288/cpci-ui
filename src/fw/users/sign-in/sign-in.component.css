@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100vw;
+  /*background-image: url('assets/images/HomepagePanelKenyaFlagged.jpg');*/
+  background-position: center center;
+  background-size: cover;
+}
+
+.sign-in-form {
+  background-color: white;
+  opacity: 0.84;
+  padding: 20px;
+}
+
+a {
+  line-height: 32px;
+}
+button {
+  float: right;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  flex: 0.5;
+}
+
+.toolbar {
+  margin-top: -30px;
+  margin-bottom: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+

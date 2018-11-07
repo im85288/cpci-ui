@@ -1,0 +1,37 @@
+
+<a *ngFor="let icon of frameworkConfigService.socialIcons"
+    [href]="icon.link"
+    [title]="icon.alt">
+    <img
+        class="top-image"
+        [src]="icon.imageFile"
+        [alt]="icon.alt">
+</a>
+
+<!--<div class="icons" *ngIf="frameworkConfigService.showUserControls">-->
+
+  <!--<button stopPropagation class="noavatar" *ngIf="user?.avatar" [matMenuTriggerFor]="userMenu" mat-icon-button>-->
+    <!--<mat-icon *ngIf="user?.avatar !== 'NONE'" class="avatar"  svgIcon="{{user?.avatar}}"></mat-icon>-->
+    <!--<mat-icon *ngIf="user?.avatar === 'NONE'">account_circle</mat-icon>-->
+    <!--<span matTooltip="{{user?.roleName}}">{{user?.contactName}}</span>-->
+  <!--</button>-->
+
+  <!--<button stopPropagation class="noavatar" *ngIf="!user?.avatar" [matMenuTriggerFor]="userMenu" mat-icon-button>-->
+    <!--<mat-icon>account_circle</mat-icon>-->
+    <!--<span matTooltip="{{user?.roleName}}">{{user?.contactName}}</span>-->
+  <!--</button>-->
+
+  <!--<mat-menu #userMenu="matMenu">-->
+    <!--<button (click)="signOut()" mat-menu-item>-->
+      <!--<mat-icon>exit_to_app</mat-icon>-->
+      <!--<span>Sign Out</span>-->
+    <!--</button>-->
+    <!--<button (click)="manageAccount()" mat-menu-item>-->
+      <!--<mat-icon>account_circle</mat-icon>-->
+      <!--<span>Account</span>-->
+    <!--</button>-->
+  <!--</mat-menu>-->
+
+
+
+<!--</div>-->

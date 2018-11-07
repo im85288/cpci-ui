@@ -1,0 +1,36 @@
+<div>
+  <form [formGroup]="form">
+
+    <div *ngFor="let field of vmDefinition">
+      <fw-dynamic-field [field]="field"
+                        [form]="form"
+                        [operation]="operation"
+                        [submitted]="submitted">
+      </fw-dynamic-field>
+    </div>
+
+    <div *ngIf="errorMessage " class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="status != 'waiting'">
+      <div *ngIf="operation === 'details'">
+        <button mat-button (click)="onBack()" >Back</button>
+        <button mat-button color="primary" (click)="onEdit()" >Edit</button>
+      </div>
+      <div *ngIf="operation === 'edit'">
+        <button mat-button (click)="onCancel()" >Cancel</button>
+        <button [disabled]="form.invalid || (form.valid && (!form.touched && !form.dirty))" mat-button color="primary" (click)="onSave()" [ngClass]="{'mat-raised-button':form.valid && (form.dirty || form.touched)}">Save</button>
+      </div>
+      <div *ngIf="operation === 'create'">
+        <button mat-button (click)="onBack()" >Back</button>
+        <button [disabled]="form.invalid" mat-button color="primary" (click)="onCreate()" [ngClass]="{'mat-raised-button':form.valid && form.dirty}">Create</button>
+      </div>
+    </div>
+
+    <div *ngIf="status === 'waiting'">
+      Waiting...
+    </div>
+
+  </form>
+</div>

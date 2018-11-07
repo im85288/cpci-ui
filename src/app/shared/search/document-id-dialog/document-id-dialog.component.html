@@ -1,0 +1,31 @@
+<h4 class="center-components">{{title()}}</h4>
+<mat-dialog-content>
+  <div class="content" [formGroup]="documentIdForm">
+    <mat-form-field hintLabel="For example EP">
+      <input mask="SS" matInput placeholder="Office" formControlName="office" oninput="this.value = this.value.toUpperCase()">
+      <mat-error *ngIf="office.hasError('pattern')">
+        The office code should be two characters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="For example 12345678">
+      <input matInput placeholder="Number" formControlName="sequencenumber" oninput="this.value = this.value.toUpperCase()">
+      <mat-error *ngIf="sequencenumber.hasError('pattern')">
+        The sequence code can be a mixture of numbers/charcters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="For example A1">
+      <input mask="S9" matInput placeholder="Kind Code" formControlName="kindcode" oninput="this.value = this.value.toUpperCase()">
+      <mat-error *ngIf="kindcode.hasError('pattern')">
+        The kind code can be a character, or a character followed by a number
+      </mat-error>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="center-components">
+  <button matTooltip="Add document {{formattedDocument()}} to the search criteria" [disabled]="!documentIdForm.valid" [ngClass]="{'mat-raised-button': documentIdForm.valid}"  mat-button color="primary" (click)="add()">
+    <mat-icon>playlist_add</mat-icon> Add
+  </button>
+  <button matTooltip="Cancel without adding a document" mat-button (click)="dismiss()">
+    <mat-icon>cancel</mat-icon> Cancel
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,16 @@
+.mat-card-subtitle {
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+}
+
+.header {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.layout {
+  margin-top: 30px;
+}

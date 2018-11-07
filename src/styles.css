@@ -1,0 +1,14 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+
+mat-toolbar {
+  height: 40px !important;
+}
+
+.full-width{
+  width: 100%;
+}
+
+.center-components{
+  display: flex;
+  justify-content: center;
+}

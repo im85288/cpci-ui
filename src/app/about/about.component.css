@@ -1,0 +1,26 @@
+.wrapper {
+  background-image: url('../../assets/images/epo-background.jpg');
+  background-position: center center;
+  background-size: cover;
+  height: 88vh;
+  width: 100%;
+}
+
+.mat-card {
+  opacity: 0.8;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+}
+
+.mat-card-subtitle {
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+
+}
